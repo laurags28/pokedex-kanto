@@ -1,0 +1,413 @@
+/* =============================================
+   POKÉDEX KANTO - PÁGINA PRINCIPAL
+   ============================================= */
+
+/* 1. COLORES Y ESTILOS GENERALES */
+:root {
+    --rojo: #d9363e;
+    --rojo-oscuro: #b82334;
+    --azul-oscuro: #223453;
+    --azul: #286fbb;
+    --amarillo: #f5bb36;
+    --fondo: #f3f6fa;
+    --blanco: #ffffff;
+    --texto: #273449;
+    --texto-secundario: #5b687a;
+    --borde: #dfe6ef;
+    --sombra: 0 5px 18px rgba(25, 44, 76, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--amarillo);
+    outline-offset: 3px;
+}
+
+/* 2. CABECERA Y LOGOTIPO */
+header {
+    padding: 28px 18px 0;
+    background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));
+    color: var(--blanco);
+    text-align: center;
+    border-bottom: 4px solid var(--amarillo);
+}
+
+header > img {
+    width: 330px;
+    max-width: 85%;
+    margin: 0 auto 10px;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--blanco);
+    font-size: 2.3rem;
+    line-height: 1.2;
+}
+
+header > p {
+    margin: 10px 0 0;
+    color: #fff4e9;
+}
+
+/* 3. MENÚ DE NAVEGACIÓN */
+header nav {
+    max-width: 1150px;
+    margin: 26px auto 0;
+    padding: 8px;
+    background-color: var(--azul-oscuro);
+    border-radius: 14px 14px 0 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav a {
+    display: block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: var(--blanco);
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+    background-color: var(--amarillo);
+    color: var(--azul-oscuro);
+    text-decoration: none;
+}
+
+/* 4. CONTENIDO PRINCIPAL Y BARRA LATERAL */
+.contenedor-principal {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+main {
+    flex: 1;
+    min-width: 0;
+}
+
+main > section,
+aside > section {
+    margin-bottom: 24px;
+    padding: 28px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+}
+
+main h2,
+aside h2 {
+    margin: 0 0 18px;
+    color: var(--azul-oscuro);
+    line-height: 1.3;
+}
+
+main h2 {
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--amarillo);
+    font-size: 1.7rem;
+}
+
+main h3 {
+    margin-top: 26px;
+    margin-bottom: 12px;
+    color: var(--azul-oscuro);
+    font-size: 1.2rem;
+}
+
+main p,
+aside p {
+    margin-top: 0;
+}
+
+/* 5. PRESENTACIÓN Y FOTO DE BIENVENIDA */
+#presentacion {
+    background: linear-gradient(155deg, #ffffff, #eef7ff);
+}
+
+#presentacion > img {
+    width: 100%;
+    margin: 22px 0;
+    border-radius: 14px;
+    border: 1px solid var(--borde);
+}
+
+#presentacion > p:last-child {
+    margin: 0;
+}
+
+#presentacion > p:last-child a {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#presentacion > p:last-child a:hover {
+    background-color: var(--rojo-oscuro);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* 6. POKÉDEX Y TARJETAS DE POKÉMON */
+#pokedex > ul {
+    padding: 18px 18px 18px 38px;
+    background-color: #f4f8ff;
+    border-left: 4px solid var(--azul);
+    border-radius: 8px;
+}
+
+#pokedex > ul li {
+    margin-bottom: 6px;
+}
+
+.lista-pokemon {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.lista-pokemon article {
+    min-width: 0;
+    padding: 14px;
+    text-align: center;
+    background: #ffffff;
+    border: 2px solid var(--borde);
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(25, 44, 76, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lista-pokemon article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(25, 44, 76, 0.14);
+}
+
+.lista-pokemon article:nth-child(1) {
+    border-color: #6fb98a;
+}
+
+.lista-pokemon article:nth-child(2) {
+    border-color: #f2a36a;
+}
+
+.lista-pokemon article:nth-child(3) {
+    border-color: #79bfde;
+}
+
+.lista-pokemon h4 {
+    margin: 0 0 12px;
+    color: var(--azul-oscuro);
+    font-size: 1.12rem;
+}
+
+.lista-pokemon img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.lista-pokemon p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+#pokedex > p:last-child {
+    margin-bottom: 0;
+    color: var(--texto-secundario);
+}
+
+/* 7. SIMULADOR DE COMBATES */
+#combates > img {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 14px;
+    border: 1px solid var(--borde);
+}
+
+#combates > p:last-child {
+    margin-bottom: 0;
+    padding: 12px 16px;
+    background-color: #fff7df;
+    border-left: 4px solid var(--amarillo);
+    border-radius: 8px;
+}
+
+/* 8. BARRA LATERAL */
+aside {
+    flex: 0 0 275px;
+    min-width: 0;
+}
+
+aside > section {
+    padding: 22px;
+}
+
+aside h2 {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--borde);
+}
+
+aside ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+aside li {
+    margin-bottom: 10px;
+}
+
+aside img {
+    width: 150px;
+    max-width: 80%;
+    margin: 16px auto 0;
+    border-radius: 12px;
+}
+
+/* 9. PIE DE PÁGINA */
+footer {
+    padding: 28px 20px;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    text-align: center;
+}
+
+footer p {
+    margin: 6px 0;
+}
+
+footer a {
+    color: var(--amarillo);
+    font-weight: bold;
+}
+
+/* 10. ADAPTACIÓN A TABLETS */
+@media (max-width: 950px) {
+    .contenedor-principal {
+        flex-direction: column;
+    }
+
+    main,
+    aside {
+        width: 100%;
+    }
+
+    aside {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    aside > section {
+        margin-bottom: 0;
+    }
+}
+
+/* 11. ADAPTACIÓN A MÓVILES */
+@media (max-width: 700px) {
+    .contenedor-principal {
+        padding: 20px 12px;
+        gap: 14px;
+    }
+
+    main > section,
+    aside > section {
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+
+    .lista-pokemon {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    aside {
+        display: block;
+    }
+
+    header h1 {
+        font-size: 1.9rem;
+    }
+
+    main h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 470px) {
+    header nav a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .lista-pokemon {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Respeta a los usuarios que prefieren menos animaciones */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .lista-pokemon article,
+    #presentacion > p:last-child a {
+        transition: none;
+    }
+}

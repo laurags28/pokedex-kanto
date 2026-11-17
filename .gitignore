@@ -1,0 +1,25 @@
+
+# Configuración privada
+.env
+.env.*
+!.env.example
+
+# Archivos de configuración con credenciales
+config/database.php
+
+# Dependencias
+/vendor/
+/node_modules/
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
